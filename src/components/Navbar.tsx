@@ -86,7 +86,7 @@ const Navbar = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.4 }}
           className={`text-base text-white bg-violet-600 py-2 px-6 rounded-full shadow-md cursor-pointer hover:bg-violet-700 transition-all duration-300 ${
-            isScrolled ? "text-sm py-1 px-4" : "text-base py-2 px-6"
+            isScrolled ? "xs:text-xs text-sm py-1 px-3" : "sm:text-sm py-1 px-3"
           }`}
         >
           For Brands
@@ -118,30 +118,30 @@ const Navbar = () => {
                     
                   </p>
                 </div>
-
-                {/* Mobile Navigation Links */}
+ 
                 <ul className="flex flex-col gap-6">
-                  {navLinksdata.map(({ _id, title, link }) => (
-                    <motion.li
-                      key={_id}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 + _id * 0.1 }}
-                    >
-                      <Link
-                        onClick={() => setShowMenu(false)}
-                        activeClass="active"
-                        to={link}
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        className="text-lg font-medium text-gray-400 hover:text-[#6F55D2] transition-all duration-300"
-                      >
-                        {title}
-                      </Link>
-                    </motion.li>
-                  ))}
+                {navLinksdata.map(({ _id, title, link }, index) => (
+  <motion.li
+    key={_id}
+    initial={{ opacity: 0, x: -30 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }} // Use index instead of _id
+  >
+    <Link
+      onClick={() => setShowMenu(false)}
+      activeClass="active"
+      to={link}
+      spy={true}
+      smooth={true}
+      offset={-70}
+      duration={500}
+      className="text-lg font-medium text-gray-400 hover:text-[#6F55D2] transition-all duration-300"
+    >
+      {title}
+    </Link>
+  </motion.li>
+))}
+
                 </ul>
 
                 {/* Social Links */}
