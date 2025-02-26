@@ -40,7 +40,7 @@ const LeftBanner = () => {
         alt="bannerleft"
       />
       <div className="flex flex-col gap-5">
-        <h4 className="text-3xl sm:text-sm xs:text-sm font-outfit font-normal lg:pb-10 sm:pt-10 xs:pt-14"style={{ color: "#6F55D2" }}>
+        <h4 className="text-3xl sm:text-sm xs:text-sm lg:text-lg xl:text-lg font-outfit font-normal lg:pb-10 sm:pt-10 xs:pt-14"style={{ color: "#6F55D2" }}>
           Capchek beta version is getting ready!
         </h4>
         <motion.h1
