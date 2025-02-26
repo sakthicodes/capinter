@@ -86,7 +86,7 @@ const Navbar = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.4 }}
           className={`text-base text-white bg-violet-600 py-2 px-6 rounded-full shadow-md cursor-pointer hover:bg-violet-700 transition-all duration-300 ${
-            isScrolled ? "xs:text-xs text-sm py-1 px-3" : "sm:text-sm py-1 px-3"
+            isScrolled ? "xs:text-xs text-sm py-1 px-3" : "sm:text-sm py-1 px-3 xs:px-2"
           }`}
         >
           For Brands
