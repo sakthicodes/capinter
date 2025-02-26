@@ -51,19 +51,20 @@ const Insights = () => {
   const allowWindowScroll = useRef(false); // Flag to enable default scrolling
 
   useEffect(() => {
-    const handleScroll = (event: WheelEvent) => {
+    let touchStartY = 0;
+    let touchEndY = 0;
+  
+    const handleWheelScroll = (event: WheelEvent) => {
       if (!insightsRef.current || !tabsRef.current) return;
   
       const tabsTop = tabsRef.current.getBoundingClientRect().top;
-      const isAtNavbar = tabsTop <= NAVBAR_HEIGHT + 10; // Ensuring it's at navbar height
+      const isAtNavbar = tabsTop <= NAVBAR_HEIGHT + 10;
   
-      // If not at navbar, allow normal scrolling
       if (!isAtNavbar) {
         allowWindowScroll.current = false;
         return;
       }
   
-      // Prevent default scrolling when switching tabs
       if (!allowWindowScroll.current) {
         event.preventDefault();
       }
@@ -73,36 +74,57 @@ const Insights = () => {
       scrollDelta.current += event.deltaY;
   
       if (Math.abs(scrollDelta.current) >= SCROLL_THRESHOLD) {
-        if (scrollDelta.current > 0) {
-          // Scroll Down
-          if (activeTab < tabs.length - 1) {
-            setIsScrolling(true);
-            setActiveTab((prev) => prev + 1);
-          } else {
-            allowWindowScroll.current = true; // Allow normal scrolling at last tab
-          }
-        } else if (scrollDelta.current < 0) {
-          // Scroll Up: Only switch if the tab is at the navbar height
-          if (activeTab > 0 && isAtNavbar) {
-            setIsScrolling(true);
-            setActiveTab((prev) => prev - 1);
-          } else {
-            allowWindowScroll.current = true; // Allow normal scrolling at first tab
-          }
+        if (scrollDelta.current > 0 && activeTab < tabs.length - 1) {
+          setIsScrolling(true);
+          setActiveTab((prev) => prev + 1);
+        } else if (scrollDelta.current < 0 && activeTab > 0) {
+          setIsScrolling(true);
+          setActiveTab((prev) => prev - 1);
         }
   
-        scrollDelta.current = 0; // Reset after switching
+        scrollDelta.current = 0;
   
         setTimeout(() => setIsScrolling(false), 1000);
       }
     };
   
-    window.addEventListener("wheel", handleScroll, { passive: false });
+    const handleTouchStart = (event: TouchEvent) => {
+      touchStartY = event.touches[0].clientY;
+    };
+  
+    const handleTouchMove = (event: TouchEvent) => {
+      touchEndY = event.touches[0].clientY;
+    };
+  
+    const handleTouchEnd = () => {
+      const swipeDistance = touchStartY - touchEndY;
+  
+      if (Math.abs(swipeDistance) > SCROLL_THRESHOLD) {
+        if (swipeDistance > 0 && activeTab < tabs.length - 1) {
+          setIsScrolling(true);
+          setActiveTab((prev) => prev + 1);
+        } else if (swipeDistance < 0 && activeTab > 0) {
+          setIsScrolling(true);
+          setActiveTab((prev) => prev - 1);
+        }
+  
+        setTimeout(() => setIsScrolling(false), 1000);
+      }
+    };
+  
+    window.addEventListener("wheel", handleWheelScroll, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
   
     return () => {
-      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("wheel", handleWheelScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [activeTab, isScrolling]);
+  
   
 
   return (
