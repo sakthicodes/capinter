@@ -17,7 +17,7 @@ const tabs = [
     {
       id: 1,
       title: "Customer Experience",
-      image: iphone3,
+      image: iphone2,
       points: [
         { text: "Track customer satisfaction with live feedback.", position: "left" },
         { text: "Analyze trends in real-time data.", position: "left" },
@@ -28,7 +28,7 @@ const tabs = [
     {
       id: 2,
       title: "Spot Light",
-      image: iphone2,
+      image: iphone3,
       points: [
         { text: "Identify top-rated products instantly.", position: "left" },
         { text: "Showcase trending items based on customer love.", position: "left" },
