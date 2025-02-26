@@ -109,8 +109,8 @@ const Insights = () => {
     <section ref={insightsRef} id="Insights" className="w-full h-full py-20 sm:py-10 z-10 relative bg-white">
       <FadeIn>
         <div className="flex justify-center">
-          <div className="w-screen sm:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl   text-black flex flex-col gap-5 ">
-            <h1 className="xl:text-5xl lg:text-4xl w-[75%] xl:w-[75%] sm:w-full sm:text-3xl font-outfit font-semibold text-left xl:leading-[1.2]">
+          <div className="w-screen xs:max-w-screen-xs sm:max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl   text-black flex flex-col gap-5 ">
+            <h1 className="xs:text-3xl xl:text-5xl lg:text-4xl w-[75%] xl:w-[75%] sm:w-full xs:w-full sm:text-3xl font-outfit font-semibold text-left xl:leading-[1.2]">
               Make Confident Purchase Decisions with Data-Driven Insights
             </h1>
             <h1 className="xl:text-4xl  sm:text-2xl xl:max-w-screen-xl sm:max-w-screen-sm font-outfit font-semibold" style={{ color: "#FF3269" }}>
@@ -122,19 +122,19 @@ const Insights = () => {
     alt="Crown Icon"
     className="w-6 sm:w-8 lg:w-10 h-auto"
   />
-  <h1 className="text-2xl sm:text-xl font-outfit font-medium leading-[1.2]">
+  <h1 className="text-2xl xs:text-xs sm:text-xl font-outfit font-medium leading-[1.2]">
     Like a king’s advisors 
     Capchek offers clear insights for smarter purchases and better brands.
   </h1>
 </div>
 
 
-            <div ref={tabsRef} className="flex gap-6 sm:gap-3 mt-6">
+            <div ref={tabsRef} className="flex gap-6 sm:gap-3 xs:gap-2 mt-6">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 lg:text-lg sm:text-xs xl:text-xl  font-medium rounded-full transition-all duration-300 ${
+                  className={`px-6 py-3 xs:text-xs sm:text-sm lg:text-lg sm:text-xs xl:text-xl  font-medium rounded-full transition-all duration-300 ${
                     activeTab === tab.id ? "bg-[#6F55D2] text-white shadow-lg" : "bg-[#E5DEFF] text-black"
                   }`}
                 >

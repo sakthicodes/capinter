@@ -61,7 +61,7 @@ const RightBanner = () => {
       />
 
 <motion.img
-        className="absolute top-[28%] left-[3%] w-22 h-10 z-10 sm:rotate-90"
+        className="absolute top-[28%] left-[3%] w-22 h-10 z-10 sm:w-18 sm:h-8 xs:w-18 xs:h-7 sm:rotate-90"
         src={rightarrow}
         alt="rightarrow"
         animate={{ x: [0, 10, 0] }}
@@ -73,6 +73,7 @@ const RightBanner = () => {
     key={idx}
     className="absolute z-10 text-black px-4 py-2 
                text-center font-semibold shadow-md
+               xs:text-xs
                sm:w-35 sm:text-sm 
                md:w-41 md:text-base 
                lg:w-48 lg:text-lg"

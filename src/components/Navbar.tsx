@@ -58,8 +58,7 @@ const Navbar = () => {
           />
         </motion.div>
 
-        {/* Centered Navigation Links */}
-        <motion.ul
+         <motion.ul
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -82,8 +81,7 @@ const Navbar = () => {
           ))}
         </motion.ul>
 
-        {/* Call-to-Action Button */}
-        <motion.span
+         <motion.span
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.4 }}
@@ -110,15 +108,14 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="w-[80%] h-screen mdl:hidden overflow-scroll fixed top-0 left-0 bg-gray-900 p-6"
+              className="w-[80%] h-screen mdl:hidden fixed top-0 left-0 bg-white p-6"
             >
               <div className="flex flex-col gap-8 py-2 relative">
                 {/* Logo */}
                 <div>
                   <img className="w-32" src={logo} alt="logo" />
                   <p className="text-sm text-gray-400 mt-2">
-                    Discover better brands with us. Smart insights for smarter
-                    purchases!
+                    
                   </p>
                 </div>
 
@@ -155,7 +152,7 @@ const Navbar = () => {
                   <div className="flex gap-4">
                     <motion.a
                       whileHover={{ scale: 1.2 }}
-                      href="https://www.youtube.com/@reactjsBD"
+                      href=" "
                       target="_blank"
                       className="text-gray-400 hover:text-red-500 transition-all duration-300"
                     >
@@ -163,7 +160,7 @@ const Navbar = () => {
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.2 }}
-                      href="https://www.linkedin.com/in/noor-mohammad-ab2245193/"
+                      href=" "
                       target="_blank"
                       className="text-gray-400 hover:text-blue-600 transition-all duration-300"
                     >
@@ -171,7 +168,7 @@ const Navbar = () => {
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.2 }}
-                      href="https://www.facebook.com/Noorlalu143/"
+                      href=""
                       target="_blank"
                       className="text-gray-400 hover:text-blue-500 transition-all duration-300"
                     >
@@ -180,8 +177,7 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                {/* Close Button */}
-                <motion.span
+                 <motion.span
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}

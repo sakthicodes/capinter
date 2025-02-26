@@ -65,16 +65,16 @@ const Feature = () => {
   
 
   return (
-    <section id="features" className="w-full py-20 z-10 relative bg-white">
+    <section id="features" className="w-full py-20 xs:py-10 z-10 relative bg-white">
       <FadeIn>
-        <div className="w-full px-20 flex justify-center">
-          <div className="w-screen sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl text-black flex flex-col gap-10 sm:gap-0">
-                <h1 className="lg:text-5xl w-1/2 sm:w-full sm:text-3xl lg:w-1/2  sm:font-semibold lg:font-semibold text-left xl:leading-[1.2]  xl:max-w-screen-xl md:max-w-screen-md md:w-[100%]">
+        <div className="w-full px-20 xs:px-1 flex justify-center">
+          <div className="w-screen xs:max-w-screen-xs sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl text-black flex flex-col gap-10 sm:gap-0">
+                <h1 className="lg:text-5xl w-1/2 xs:text-2xl xs:w-full  sm:w-full sm:text-3xl lg:w-1/2 xs:font-semibold  sm:font-semibold lg:font-semibold text-left xl:leading-[1.2]  xl:max-w-screen-xl md:max-w-screen-md md:w-[100%]">
                 Features for Buyers of{" "}
                 <span className="" style={{color: "#FF3269" }}>Capchek Powered Brands</span>
               </h1>
               <div className="w-screen  text-black flex flex-col lg:flex-row items-start justify-between">
-                        <div className="w-full lg:w-[100%] sm:max-w-screen-sm flex flex-col justify-center">
+                        <div className="w-full lg:w-[100%] xs:max-w-screen-xs sm:max-w-screen-sm flex flex-col justify-center">
                         
                            <motion.p 
                             key={index}
@@ -82,7 +82,7 @@ const Feature = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.4 }}
-                            className="mt-6 text-xl lg:text-lg xl:text-xl  sm:text-lg sm:text-black-400 leading-[1.8] text-black-800"
+                            className="mt-6 xs:mt-1 text-xl sm:text-sm xs:text-sm lg:text-lg xl:text-xl xs:leading-[1.8] sm:text-lg sm:text-black-400 leading-[1.8] text-black-800"
                           >
                              {activeCard?.detailDesc}
                              </motion.p>
@@ -111,14 +111,14 @@ const Feature = () => {
                             exit="exit"
                           >
                              <div
-                              className={`flex flex-row gap-10 sm:gap-2 ${
+                              className={`flex flex-row gap-10 sm:gap-2 xs:gap-2 ${
                                 i === 0 ? "justify-start opacity-50" : i === 2 ? "justify-end opacity-50" : "justify-center"
                               }`}
                             >
-                               <img src={card.icons} alt="" className="w-[70px] h-[70px] sm:w-[40px] sm:h-[40px]" />
+                               <img src={card.icons} alt="" className="w-[70px] h-[70px] sm:w-[40px] sm:h-[40px] xs:w-[40px] xs:h-[40px]" />
                               <div>
                                 <h2 className="text-xl font-semibold">{card.title}</h2>
-                                <p className="text-gray-500 mt-1 sm:text-sm">{card.shortDesc}</p>
+                                <p className="text-gray-500 mt-1 sm:text-sm xs:text-xs">{card.shortDesc}</p>
                               </div>
                             </div>
                           </motion.div>

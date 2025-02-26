@@ -40,7 +40,7 @@ const LeftBanner = () => {
         alt="bannerleft"
       />
       <div className="flex flex-col gap-5">
-        <h4 className="text-3xl sm:text-xl font-outfit font-normal lg:pb-10 sm:pt-10 "style={{ color: "#6F55D2" }}>
+        <h4 className="text-3xl sm:text-sm xs:text-sm font-outfit font-normal lg:pb-10 sm:pt-10 xs:pt-14"style={{ color: "#6F55D2" }}>
           Capchek beta version is getting ready!
         </h4>
         <motion.h1
@@ -59,7 +59,7 @@ const LeftBanner = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5 }}
-          className="w-[95%] text-base font-bodyFont leading-6 sm:text-sm text-gray-500 tracking-wider"
+          className="w-[95%] text-base font-bodyFont leading-6 xs:leading-[1.8] sm:text-sm xs:text-xs text-gray-500 tracking-wider"
         >
           <span className="font-bold text-black">Capchek makes it happen</span>— {bannerData[index].description}
         </motion.p>
@@ -69,7 +69,7 @@ const LeftBanner = () => {
     alt="Crown Icon"
     className="w-6 sm:w-8 lg:w-10 h-auto"
   />
-  <h4 className="text-xl font-outfit font-normal text-red-600 lg:pb-10 sm:pt-10">
+  <h4 className="text-xl font-outfit font-normal text-red-600 lg:pb-10 xs:text-xs sm:text-sm sm:pt-10">
     A brand can build a great kingdom only when every customer is treated like a king.
   </h4>
 </div>
