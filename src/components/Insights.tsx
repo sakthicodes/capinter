@@ -74,11 +74,19 @@ const Insights = () => {
       scrollDelta.current += event.deltaY;
     
       if (Math.abs(scrollDelta.current) >= SCROLL_THRESHOLD) {
-        if (scrollDelta.current > 0 && activeTab < tabs.length - 1) {
-           setIsScrolling(true);
-          setActiveTab((prev) => prev + 1);
-          allowWindowScroll.current = false; // Disable window scroll
+        if (scrollDelta.current > 0) {
+          // Scrolling down
+          if (activeTab < tabs.length - 1) {
+            // Move to next tab
+            setIsScrolling(true);
+            setActiveTab((prev) => prev + 1);
+            allowWindowScroll.current = false; // Disable window scroll
+          } else {
+            // If at last tab (tab id == 2), enable normal scrolling down
+            allowWindowScroll.current = true;
+          }
         } else if (scrollDelta.current < 0) {
+          // Scrolling up
           if (activeTab > 0) {
              setIsScrolling(true);
             setActiveTab((prev) => prev - 1);
@@ -92,6 +100,7 @@ const Insights = () => {
         setTimeout(() => setIsScrolling(false), 1000);
       }
     };
+    
     
   
     const handleTouchStart = (event: TouchEvent) => {
