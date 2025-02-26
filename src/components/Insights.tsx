@@ -56,37 +56,43 @@ const Insights = () => {
   
     const handleWheelScroll = (event: WheelEvent) => {
       if (!insightsRef.current || !tabsRef.current) return;
-  
+    
       const tabsTop = tabsRef.current.getBoundingClientRect().top;
       const isAtNavbar = tabsTop <= NAVBAR_HEIGHT + 10;
-  
+    
       if (!isAtNavbar) {
         allowWindowScroll.current = false;
         return;
       }
-  
+    
       if (!allowWindowScroll.current) {
         event.preventDefault();
       }
-  
+    
       if (isScrolling) return;
-  
+    
       scrollDelta.current += event.deltaY;
-  
+    
       if (Math.abs(scrollDelta.current) >= SCROLL_THRESHOLD) {
         if (scrollDelta.current > 0 && activeTab < tabs.length - 1) {
-          setIsScrolling(true);
+           setIsScrolling(true);
           setActiveTab((prev) => prev + 1);
-        } else if (scrollDelta.current < 0 && activeTab > 0) {
-          setIsScrolling(true);
-          setActiveTab((prev) => prev - 1);
+          allowWindowScroll.current = false; // Disable window scroll
+        } else if (scrollDelta.current < 0) {
+          if (activeTab > 0) {
+             setIsScrolling(true);
+            setActiveTab((prev) => prev - 1);
+            allowWindowScroll.current = false; // Disable window scroll
+          } else {
+             allowWindowScroll.current = true;
+          }
         }
-  
+    
         scrollDelta.current = 0;
-  
         setTimeout(() => setIsScrolling(false), 1000);
       }
     };
+    
   
     const handleTouchStart = (event: TouchEvent) => {
       touchStartY = event.touches[0].clientY;
